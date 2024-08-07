@@ -1,11 +1,32 @@
 let imgs = document.querySelectorAll(".images");
+let moves = 10;
 
-imgs.forEach((images)=>{
-    images.addEventListener("click",()=>{
-        const userIpt = images.getAttribute("id");
-        compare(userIpt);
-    });
-});
+    imgs.forEach((images)=>{
+        images.addEventListener("click",(e)=>{
+            if(moves>0){
+            const userIpt = images.getAttribute("id");
+            compare(userIpt);
+            console.log("moves : "+ moves) ; 
+            moves--;
+            }
+            if(moves<=0){
+                Reset();
+            }
+            userMoves(moves);
+        });
+     });  
+
+     let Reset = () => {
+        let comfirmResult  = confirm("Do you want to paly again?");
+        if(comfirmResult){
+            window.location.reload();
+        }
+     }
+
+     let cntMoves = document.querySelector("#cntMoves");
+     let userMoves = (moves)=>{
+        cntMoves.innerHTML = moves;
+     }
 
 const cmpChoice = ()=>{
     let choiceArr = ["rock", "paper", "scissor"];
@@ -48,6 +69,7 @@ let score = (result) =>{
      console.log(`compScore : ${compScore} && userScore: ${userScore}`)
      updatedScore(compScore, userScore);
      finalWin(compScore, userScore)
+     
 }
 
 let userCnt = document.querySelector("#userCnt");
@@ -85,6 +107,6 @@ let finalWin = (compScore, userScore)=>{
          finalWinner.innerHTML = "You are the Winner"
      }
      else{
-        finalWinner.innerHTML = "Its A tie"
+        finalWinner.innerHTML = "Its a tie"
      }
 }

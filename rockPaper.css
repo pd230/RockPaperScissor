@@ -4,8 +4,18 @@
     text-align: center;
 }
 
+#moves{
+    display : flex;
+    flex-direction : row;
+    justify-content : right;
+    margin-right : 3vw;
+    font-size : 2rem;
+    color:red;
+    font-family:sans;
+}
+
 #mainDiv{
-    margin-top : 10vh;
+    margin-top : 2vh;
     display:flex;
     flex-direction : column;
     align-items : center;
@@ -83,11 +93,12 @@ img:hover{
     border : 1px solid black;
     align-items:center;
     justify-content:center;
-    font-size : 2xl;
+    font-size : 2rem;
 }
 
 .winboard{
-    font-size : xl;
+    font-size : 2rem;
+    font-family : sofia;
 }
 
 hr{
